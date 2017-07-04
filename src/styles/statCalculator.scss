@@ -1,0 +1,9 @@
+.stat-calculator {
+  display: flex;
+  flex-direction: column;
+  
+  .counter-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
