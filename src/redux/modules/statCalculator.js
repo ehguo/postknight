@@ -1,5 +1,6 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
+export const CHANGE = 'CHANGE';
 export const RESET = 'RESET';
 
 const initialState = {
@@ -51,6 +52,8 @@ export default function reducer(state = initialState, action) {
         },
         points: value === 2 ? state.points + 1 : state.points + newCost
       };
+    case CHANGE:
+      console.log(action.e.target.value);
     case RESET:
       return initialState;
     default:
@@ -83,6 +86,13 @@ export function decrement(stat) {
     type: DECREMENT,
     stat
   };
+}
+
+export function change(e) {
+  return {
+    type: CHANGE,
+    e
+  }
 }
 
 export function reset() {
