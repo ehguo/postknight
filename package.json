@@ -1,0 +1,43 @@
+{
+  "name": "postknight",
+  "version": "1.0.0",
+  "description": "Stuff for the mobile game Postknight.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "test": "tape tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehguo/postknight.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ehguo/postknight/issues"
+  },
+  "homepage": "https://github.com/ehguo/postknight#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.1",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
