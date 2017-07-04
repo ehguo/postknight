@@ -21,7 +21,7 @@ class StatCalculator extends Component {
       <div className="stat-calculator">
         <div>Points: {points}</div>
         <div className="counter-container">{counters}</div>
-        <button onClick={this.reset}>Reset</button>
+        <button className="reset" onClick={this.reset}>Reset</button>
       </div>
     );
   }
