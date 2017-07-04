@@ -1,32 +1,18 @@
 .counter {
-  display: flex;
-  flex-direction: column;
-  width: 50px;
-
-  background: black;
-
-  .stat-name {
-    color: white;
-    font-size: 1.25em;
-    text-transform: uppercase;
-  }
-
-  .stat-value {
-    color: orange;
-    font-size: 2em;
-  }
-
-  .stat-cost {
-    padding: 2px;
-    color: grey;
-    font-size: 0.75em;
-    text-transform: uppercase;
-  }
-
   button {
-    padding: 5px;
-    background: orange;
+    font-size: 1.5em;
+  }
+
+  input {
+    padding: 10px 0;
+    color: white;
+    font-size: 1.5em;
+    width: 100px;
+    background: none;
     border: none;
+    text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
   }
 
   input[type=number]::-webkit-outer-spin-button,
