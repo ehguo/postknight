@@ -1,10 +1,8 @@
 @import './colors.scss';
 @import './display.scss';
 @import './fonts.scss';
-
-@import './app.scss';
-@import './statCalculator.scss';
-@import './counter.scss';
+@import './overrides.scss';
+@import './position.scss';
 
 * {
   margin: 0;

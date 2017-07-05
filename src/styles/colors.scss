@@ -24,3 +24,6 @@ $orange: #E97900;
 .bg-blue { background-color: $blue; }
 .bg-orange { background-color: $orange; }
 .bg-none { background-color: transparent; }
+
+// Border colors
+.border-grey { border: 3px solid $grey; }

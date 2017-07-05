@@ -3,14 +3,18 @@ import classNames from 'classnames';
 import { Counter } from './components';
 
 class StatCalculator extends Component {
-  reset = () => {
-    this.props.reset();
-  }
+  reset = () => this.props.reset();
   render() {
     const statCalcStyles = classNames('flex-col');
-    const pointStyles = classNames('margin', 'padding', 'bg-white');
+    const pointStyles = classNames('small-text', 'margin', 'padding', 'bg-none', 'border-grey');
     const counterContainerStyles = classNames('flex-row');
-    const resetStyles = classNames('reset', 'bg-none', 'border-none');
+    const resetStyles = classNames(
+      'margin',
+      'padding',
+      'small-text',
+      'bg-none',
+      'border-grey'
+    );
 
     const { points, str, agi, int, vit, increment, decrement, jumpToLevel } = this.props;
     const stats = { str, agi, int, vit };
