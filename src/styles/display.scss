@@ -9,6 +9,7 @@
 }
 
 .flex-center {
+  justify-content: center;
   align-items: center;
 }
 
@@ -41,9 +42,13 @@
 }
 
 .height-fit {
-  height: 100vh;
+  height: 100%;
 }
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.opaque {
+  opacity: 0.5;
 }

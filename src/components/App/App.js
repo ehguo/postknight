@@ -7,17 +7,22 @@ import background from '../../images/background.jpg';
 class App extends PureComponent {
   render() {
     const appStyles = classNames('flex-col', 'flex-center', 'text-center', 'vh-100');
-    const imageStyles = classNames(
+    const imageContainerStyles = classNames(
       'absolute',
       'z-behind',
       'width-fit',
       'height-fit',
       'overflow-hidden'
     );
+    const imageStyles = classNames(
+      // 'width-fit',
+      'height-fit',
+      'opaque'
+    )
     return (
       <div className={appStyles}>
-        <div className={imageStyles}>
-          <img src={background} />
+        <div className={imageContainerStyles}>
+          <img className={imageStyles} src={background} />
         </div>
         <StatCalculator />
       </div>
