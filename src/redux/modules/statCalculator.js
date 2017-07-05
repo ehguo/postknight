@@ -68,7 +68,6 @@ function jump(stat, level, state) {
   while (currLevel < level) {
     newState = inc(stat, newState);
     currLevel++;
-    console.log(newState);
   }
   while (currLevel > level) {
     newState = dec(stat, newState);
