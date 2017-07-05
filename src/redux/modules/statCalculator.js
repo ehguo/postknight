@@ -3,7 +3,7 @@ export const DECREMENT = 'DECREMENT';
 export const JUMP_TO_LEVEL = 'JUMP_TO_LEVEL';
 export const RESET = 'RESET';
 
-const initialState = {
+const initialState = () => ({
   points: 1244,
   str: {
     value: 1,
@@ -21,9 +21,9 @@ const initialState = {
     value: 1,
     cost: 1
   }
-}
+});
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = initialState(), action) {
   const stat = action.stat;
   let value, cost;
   if (stat) {
@@ -39,7 +39,7 @@ export default function reducer(state = initialState, action) {
     case JUMP_TO_LEVEL:
       return jump(stat, action.level, state);
     case RESET:
-      return initialState;
+      return initialState();
     default:
       return state;
   }

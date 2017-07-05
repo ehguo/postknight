@@ -1,9 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Counter } from './components';
 
-class StatCalculator extends PureComponent {
-  reset = () => this.props.reset();
+class StatCalculator extends Component {
+  reset = () => {
+    this.props.reset();
+  }
   render() {
     const statCalcStyles = classNames('flex-col');
     const pointStyles = classNames('margin', 'padding', 'bg-white');

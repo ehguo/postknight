@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ehguo/postknight#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
