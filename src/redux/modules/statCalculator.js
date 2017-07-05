@@ -1,6 +1,6 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
-export const CHANGE = 'CHANGE';
+export const JUMP_TO_LEVEL = 'JUMP_TO_LEVEL';
 export const RESET = 'RESET';
 
 const initialState = {
@@ -25,35 +25,19 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   const stat = action.stat;
-  let value, cost, newCost;
+  let value, cost;
   if (stat) {
     value = state[stat].value;
     cost = state[stat].cost;
   }
   switch (action.type) {
     case INCREMENT:
-      newCost = getNewCost(value, cost, INCREMENT);
-      return {
-        ...state,
-        [stat]: {
-          value: value + 1,
-          cost: newCost
-        },
-        points: value === 1 ? state.points - 1 : state.points - newCost,
-      };
+      return inc(stat, state);
     case DECREMENT:
-      if (value === 1) return state;
-      newCost = getNewCost(value, cost, DECREMENT);
-      return {
-        ...state,
-        [stat]: {
-          value: value - 1,
-          cost: newCost
-        },
-        points: value === 2 ? state.points + 1 : state.points + newCost
-      };
-    case CHANGE:
-      console.log(action.e.target.value);
+      if (state[stat].value === 1) return state;
+      return dec(stat, state);
+    case JUMP_TO_LEVEL:
+      return jump(stat, action.level, state);
     case RESET:
       return initialState;
     default:
@@ -61,17 +45,36 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-function getNewCost(value, cost, modifier) {
-  switch (modifier) {
-    case INCREMENT:
-      return value < 2
-        ? 2
-        : Math.floor((value + 18) / 10);
-    case DECREMENT:
-      return value === 2
-        ? 1
-        : Math.floor((value + 17) / 10);
+function inc(stat, state) {
+  if (state.points < state[stat].cost) return state;
+  const newState = { ...state };
+  newState[stat].value += 1;
+  newState.points -= newState[stat].cost;
+  if (newState[stat].value % 10 === 2) newState[stat].cost += 1;
+  return newState;
+}
+
+function dec(stat, state) {
+  const newState = { ...state };
+  newState[stat].value -= 1;
+  if (newState[stat].value % 10 === 1) newState[stat].cost -= 1;
+  newState.points += newState[stat].cost;
+  return newState;
+}
+
+function jump(stat, level, state) {
+  let newState = { ...state };
+  let currLevel = newState[stat].value;
+  while (currLevel < level) {
+    newState = inc(stat, newState);
+    currLevel++;
+    console.log(newState);
   }
+  while (currLevel > level) {
+    newState = dec(stat, newState);
+    currLevel--;
+  }
+  return newState;
 }
 
 export function increment(stat) {
@@ -88,10 +91,11 @@ export function decrement(stat) {
   };
 }
 
-export function change(e) {
+export function jumpToLevel(stat, level) {
   return {
-    type: CHANGE,
-    e
+    type: JUMP_TO_LEVEL,
+    stat,
+    level
   }
 }
 

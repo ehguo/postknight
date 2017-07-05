@@ -10,7 +10,7 @@ class StatCalculator extends PureComponent {
     const counterContainerStyles = classNames('flex-row');
     const resetStyles = classNames('reset', 'bg-none', 'border-none');
 
-    const { points, str, agi, int, vit, increment, decrement, change } = this.props;
+    const { points, str, agi, int, vit, increment, decrement, jumpToLevel } = this.props;
     const stats = { str, agi, int, vit };
     const counters = Object.keys(stats).map(stat => {
       return (
@@ -20,7 +20,7 @@ class StatCalculator extends PureComponent {
           data={stats[stat]}
           increment={increment}
           decrement={decrement}
-          change={change}
+          jumpToLevel={jumpToLevel}
         />
       );
     });
