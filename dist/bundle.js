@@ -11321,11 +11321,15 @@ var App = function (_PureComponent) {
     key: 'render',
     value: function render() {
       var appStyles = (0, _classnames2.default)('flex-col', 'flex-center', 'text-center', 'vh-100');
-      var imageStyles = (0, _classnames2.default)('absolute', 'z-behind');
+      var imageStyles = (0, _classnames2.default)('absolute', 'z-behind', 'width-fit', 'height-fit', 'overflow-hidden');
       return _react2.default.createElement(
         'div',
         { className: appStyles },
-        _react2.default.createElement('img', { className: imageStyles, src: _background2.default }),
+        _react2.default.createElement(
+          'div',
+          { className: imageStyles },
+          _react2.default.createElement('img', { src: _background2.default })
+        ),
         _react2.default.createElement(_StatCalculator2.default, null)
       );
     }
@@ -11657,7 +11661,7 @@ exports = module.exports = __webpack_require__(110)(undefined);
 
 
 // module
-exports.push([module.i, ".white {\n  color: #FFFFFF; }\n\n.black {\n  color: #000000; }\n\n.grey {\n  color: #444444; }\n\n.red {\n  color: #C91A25; }\n\n.green {\n  color: #0BBB5A; }\n\n.blue {\n  color: #0788D1; }\n\n.orange {\n  color: #E97900; }\n\n.bg-white {\n  background-color: #FFFFFF; }\n\n.bg-black {\n  background-color: #000000; }\n\n.bg-grey {\n  background-color: #444444; }\n\n.bg-red {\n  background-color: #C91A25; }\n\n.bg-green {\n  background-color: #0BBB5A; }\n\n.bg-blue {\n  background-color: #0788D1; }\n\n.bg-orange {\n  background-color: #E97900; }\n\n.bg-none {\n  background-color: transparent; }\n\n.border-grey {\n  border: 3px solid #444444; }\n\n.flex-row {\n  display: flex;\n  flex-direction: row; }\n\n.flex-col {\n  display: flex;\n  flex-direction: column; }\n\n.flex-center {\n  align-items: center; }\n\n.margin {\n  margin: 5px; }\n\n.padding {\n  padding: 10px 0; }\n\n.border-none {\n  border: none; }\n\n.border-outset {\n  border: outset; }\n\n.vh-100 {\n  height: 100vh; }\n\n.width-60 {\n  width: 60px; }\n\n.uppercase {\n  text-transform: uppercase; }\n\n.text-center {\n  text-align: center; }\n\n.small-text {\n  font-size: 0.75em; }\n\n.medium-text {\n  font-size: 1.5em; }\n\n.large-text {\n  font-size: 2em; }\n\n.no-spinner {\n  -moz-appearance: textfield;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box; }\n\ninput[type=number]::-webkit-inner-spin-button,\ninput[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none; }\n\n.absolute {\n  position: absolute; }\n\n.z-behind {\n  z-index: -1; }\n\n* {\n  margin: 0;\n  padding: 0; }\n\nbody {\n  height: 100vh;\n  font-family: Roboto;\n  font-size: 1.5em; }\n", ""]);
+exports.push([module.i, ".white {\n  color: #FFFFFF; }\n\n.black {\n  color: #000000; }\n\n.grey {\n  color: #444444; }\n\n.red {\n  color: #C91A25; }\n\n.green {\n  color: #0BBB5A; }\n\n.blue {\n  color: #0788D1; }\n\n.orange {\n  color: #E97900; }\n\n.bg-white {\n  background-color: #FFFFFF; }\n\n.bg-black {\n  background-color: #000000; }\n\n.bg-grey {\n  background-color: #444444; }\n\n.bg-red {\n  background-color: #C91A25; }\n\n.bg-green {\n  background-color: #0BBB5A; }\n\n.bg-blue {\n  background-color: #0788D1; }\n\n.bg-orange {\n  background-color: #E97900; }\n\n.bg-none {\n  background-color: transparent; }\n\n.border-grey {\n  border: 3px solid #444444; }\n\n.flex-row {\n  display: flex;\n  flex-direction: row; }\n\n.flex-col {\n  display: flex;\n  flex-direction: column; }\n\n.flex-center {\n  align-items: center; }\n\n.margin {\n  margin: 5px; }\n\n.padding {\n  padding: 10px 0; }\n\n.border-none {\n  border: none; }\n\n.border-outset {\n  border: outset; }\n\n.vh-100 {\n  height: 100vh; }\n\n.width-60 {\n  width: 60px; }\n\n.width-fit {\n  width: 100%; }\n\n.height-fit {\n  height: 100vh; }\n\n.overflow-hidden {\n  overflow: hidden; }\n\n.uppercase {\n  text-transform: uppercase; }\n\n.text-center {\n  text-align: center; }\n\n.small-text {\n  font-size: 0.75em; }\n\n.medium-text {\n  font-size: 1.5em; }\n\n.large-text {\n  font-size: 2em; }\n\n.no-spinner {\n  -moz-appearance: textfield;\n  box-sizing: border-box;\n  -moz-box-sizing: border-box; }\n\ninput[type=number]::-webkit-inner-spin-button,\ninput[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none; }\n\n.absolute {\n  position: absolute; }\n\n.z-behind {\n  z-index: -1; }\n\n* {\n  margin: 0;\n  padding: 0; }\n\nbody {\n  height: 100vh;\n  font-family: Roboto;\n  font-size: 1.5em; }\n", ""]);
 
 // exports
 
