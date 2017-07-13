@@ -1,4 +1,5 @@
 .uppercase { text-transform: uppercase; }
+.text-left { text-align: left; }
 .text-center { text-align: center; }
 
 .fontsize-1 { font-size: 0.25em; }
@@ -9,3 +10,6 @@
 .fontsize-6 { font-size: 1.5em; }
 .fontsize-7 { font-size: 1.75em; }
 .fontsize-8 { font-size: 2em; }
+
+// Font families
+.ubuntu { font-family: 'Ubuntu Mono'; }
