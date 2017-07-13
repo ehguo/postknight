@@ -5,6 +5,9 @@ $red: #C91A25;
 $green: #0BBB5A;
 $blue: #0788D1;
 $orange: #E97900;
+$lightbrown: #F4CF93;
+$brown: #6D431B;
+$darkbrown: #492F1C;
 
 // Font colors
 .white { color: $white; }
@@ -14,6 +17,7 @@ $orange: #E97900;
 .green { color: $green; }
 .blue { color: $blue; }
 .orange { color: $orange; }
+.darkbrown { color: $darkbrown; }
 
 // Background colors
 .bg-white { background-color: $white; }
@@ -24,6 +28,11 @@ $orange: #E97900;
 .bg-blue { background-color: $blue; }
 .bg-orange { background-color: $orange; }
 .bg-none { background-color: transparent; }
+.bg-lightbrown { background-color: $lightbrown; }
 
 // Border colors
 .border-grey { border: 3px solid $grey; }
+.border-brown { border: 3px solid $brown; }
+
+// Outline colors
+.outline-darkbrown { outline: 3px solid $darkbrown; }

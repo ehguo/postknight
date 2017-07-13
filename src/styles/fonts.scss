@@ -1,14 +1,11 @@
 .uppercase { text-transform: uppercase; }
 .text-center { text-align: center; }
 
-.small-text {
-  font-size: 0.75em;
-}
-
-.medium-text {
-  font-size: 1.5em;
-}
-
-.large-text {
-  font-size: 2em;
-}
+.fontsize-1 { font-size: 0.25em; }
+.fontsize-2 { font-size: 0.5em; }
+.fontsize-3 { font-size: 0.75em; }
+.fontsize-4 { font-size: 1em; }
+.fontsize-5 { font-size: 1.25em; }
+.fontsize-6 { font-size: 1.5em; }
+.fontsize-7 { font-size: 1.75em; }
+.fontsize-8 { font-size: 2em; }
