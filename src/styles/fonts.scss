@@ -1,15 +1,14 @@
 .uppercase { text-transform: uppercase; }
 .text-left { text-align: left; }
 .text-center { text-align: center; }
+.text-right { text-align: right; }
 
-.fontsize-1 { font-size: 0.25em; }
-.fontsize-2 { font-size: 0.5em; }
-.fontsize-3 { font-size: 0.75em; }
-.fontsize-4 { font-size: 1em; }
-.fontsize-5 { font-size: 1.25em; }
-.fontsize-6 { font-size: 1.5em; }
-.fontsize-7 { font-size: 1.75em; }
-.fontsize-8 { font-size: 2em; }
+@for $i from 1 through 20 {
+  .fontsize-#{$i} {
+    font-size: #{$i / 10}em;
+  }
+}
 
 // Font families
+.roboto { font-family: 'Roboto'; }
 .ubuntu { font-family: 'Ubuntu Mono'; }

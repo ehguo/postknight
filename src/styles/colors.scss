@@ -20,6 +20,7 @@ $darkbrown: #492F1C;
 .darkbrown { color: $darkbrown; }
 
 // Background colors
+.bg-none { background-color: transparent; }
 .bg-white { background-color: $white; }
 .bg-black { background-color: $black; }
 .bg-grey { background-color: $grey; }
@@ -27,10 +28,10 @@ $darkbrown: #492F1C;
 .bg-green { background-color: $green; }
 .bg-blue { background-color: $blue; }
 .bg-orange { background-color: $orange; }
-.bg-none { background-color: transparent; }
 .bg-lightbrown { background-color: $lightbrown; }
 
 // Border colors
+.border-none { border: none; }
 .border-grey { border: 3px solid $grey; }
 .border-brown { border: 3px solid $brown; }
 

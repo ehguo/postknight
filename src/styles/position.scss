@@ -1,11 +1,9 @@
-.absolute {
-  position: absolute;
-}
+.fixed { position: fixed; }
+.absolute { position: absolute; }
+.relative { position: relative; }
 
-.z-behind {
-  z-index: -1;
-}
-
-.z-10 {
-  z-index: 10;
+@for $i from -1 through 40 {
+  .z-#{$i} {
+    z-index: $i;
+  }
 }
