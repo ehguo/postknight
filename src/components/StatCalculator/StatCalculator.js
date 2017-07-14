@@ -1,43 +1,41 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
+import React, { PureComponent } from 'react';
+import R from 'ramda';
+import cn from 'classnames';
 import { Counter } from './components';
 
-class StatCalculator extends Component {
-  reset = () => this.props.reset();
+export default class StatCalculator extends PureComponent {
   render() {
-    const statCalcStyles = classNames('flex-col');
-    const pointStyles = classNames('small-text', 'margin', 'padding', 'bg-none', 'border-grey');
-    const counterContainerStyles = classNames('flex-row');
-    const resetStyles = classNames(
-      'margin',
-      'padding',
-      'small-text',
-      'bg-none',
-      'border-grey'
+    const containerStyles = cn(
+      'flex-col',
+      'flex-center',
+      'outline-darkbrown',
+      'border-brown',
+      'bg-lightbrown',
+      'p-5'
     );
+    const pointStyles = cn('fontsize-10');
+    const counterContainerStyles = cn('flex-row');
+    const resetStyles = cn('width-100');
 
-    const { points, str, agi, int, vit, increment, decrement, jumpToLevel } = this.props;
-    const stats = { str, agi, int, vit };
-    const counters = Object.keys(stats).map(stat => {
-      return (
-        <Counter
-          key={stat}
-          stat={stat}
-          data={stats[stat]}
-          increment={increment}
-          decrement={decrement}
-          jumpToLevel={jumpToLevel}
-        />
-      );
-    });
+    const { points } = this.props;
+    const stats = ['str', 'agi', 'int', 'vit'];
+
+    const renderCounter = (stat) => (
+      <Counter
+        key={stat}
+        stat={stat}
+        data={this.props[stat]}
+        {...this.props}
+      />
+    );
+    
+    const counters = R.map(renderCounter, stats);
     return (
-      <div className={statCalcStyles}>
+      <div className={containerStyles}>
         <div className={pointStyles}>Points: {points}</div>
         <div className={counterContainerStyles}>{counters}</div>
-        <button className={resetStyles} onClick={this.reset}>Reset</button>
+        <button className={resetStyles} onClick={this.props.reset}>Reset</button>
       </div>
     );
   }
 }
-
-export default StatCalculator;
