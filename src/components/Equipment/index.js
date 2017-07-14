@@ -1,1 +1,3 @@
-export { default as Equipment } from './Equipment';
+import Equipment from './Equipment';
+
+export default Equipment;

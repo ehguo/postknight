@@ -14,7 +14,7 @@ export default class EquipSet extends PureComponent {
     const imgPath = `images/equipment/${setName.toLowerCase()}.png`;
 
     const containerStyles = cn(
-      'margin-10',
+      'm-10',
       'outline-darkbrown',
       'border-brown',
       'bg-lightbrown',
@@ -23,16 +23,16 @@ export default class EquipSet extends PureComponent {
     const titleStyles = cn(
       'mt-10',
       'text-center',
-      'fontsize-4',
+      'fontsize-14',
       'darkbrown',
       'uppercase'
     );
     const bodyStyles = cn(
-      'margin-10',
+      'm-10',
       'width-500',
-      'height-235',
+      'height-250',
       'ubuntu',
-      'fontsize-3'
+      'fontsize-10'
     );
     const contentStyles = cn(
       'size-fill',
@@ -41,7 +41,6 @@ export default class EquipSet extends PureComponent {
 
     const body = this.state.clicked
       ? (
-        <div className={bodyStyles}>
           <table className={contentStyles}>
             <tr>
               <th>Item</th>
@@ -69,18 +68,13 @@ export default class EquipSet extends PureComponent {
               <td>{HELM.BONUS}</td>
             </tr>
           </table>
-        </div>
       )
-      : (
-        <div className={bodyStyles}>
-          <img className={contentStyles} src={imgPath} />
-        </div>
-      );
+      : <img className={contentStyles} src={imgPath} />;
 
     return (
       <div className={containerStyles} onClick={this.handleClick}>
         <h1 className={titleStyles}>{NAME}</h1>
-        {body}
+          <div className={bodyStyles}>{body}</div>
       </div>
     );
   }
