@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import R from 'ramda';
 import cn from 'classnames';
 import { Counter } from './components';
+import { Stats } from 'redux/modules/statCalculator';
 
 export default class StatCalculator extends PureComponent {
   render() {
@@ -13,18 +14,27 @@ export default class StatCalculator extends PureComponent {
       'bg-lightbrown',
       'p-5'
     );
-    const pointStyles = cn('fontsize-10');
+    const pointStyles = cn(
+      'fontsize-10',
+      'roboto',
+      'grey'
+    );
     const counterContainerStyles = cn('flex-row');
-    const resetStyles = cn('width-100');
+    const resetStyles = cn('width-100',
+      'roboto',
+      'bg-grey',
+      'white',
+      'border-none',
+      'p-5'
+    );
 
-    const { points } = this.props;
     const stats = ['str', 'agi', 'int', 'vit'];
 
     const renderCounter = (stat) => (
       <Counter
         key={stat}
         stat={stat}
-        data={this.props[stat]}
+        val={this.props[stat]}
         {...this.props}
       />
     );
@@ -32,7 +42,7 @@ export default class StatCalculator extends PureComponent {
     const counters = R.map(renderCounter, stats);
     return (
       <div className={containerStyles}>
-        <div className={pointStyles}>Points: {points}</div>
+        <div className={pointStyles}>Points: {this.props.points}</div>
         <div className={counterContainerStyles}>{counters}</div>
         <button className={resetStyles} onClick={this.props.reset}>Reset</button>
       </div>

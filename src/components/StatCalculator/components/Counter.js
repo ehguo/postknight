@@ -1,30 +1,69 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import cn from 'classnames';
+import { getCost } from 'redux/modules/statCalculator';
 
-const Counter = ({ stat, data, increment, decrement, jumpToLevel }) => {
-  const counterStyles = cn(
-    'flex-col',
-    'width-50',
-    'm-5',
-    'text-center'
-  );
-  const inputStyles = cn(
-    'text-center'
-  );
+export default class Counter extends PureComponent {
+  state = {
+    interval: null
+  }
 
-  const inc = () => increment(stat);
-  const dec = () => decrement(stat);
-  const jump = (e) => jumpToLevel(stat, e.target.value);
+  inc = () => this.props.increment(this.props.stat);
+  dec = () => this.props.decrement(this.props.stat);
 
-  return (
-    <div className={counterStyles}>
-      <div>{stat}</div>
-      <button onClick={inc}>+</button>
-      <input className={inputStyles} type="number" value={data.value} onChange={jump}/>
-      <button onClick={dec}>-</button>
-      <div>{data.cost} pts</div>
-    </div>
-  );
+  holdInc = () => this.interval = setInterval(this.inc, 75);
+  holdDec = () => this.interval = setInterval(this.dec, 75);
+  release = () => clearInterval(this.interval);
+
+  render() {
+    const counterStyles = cn(
+      'flex-col',
+      'width-50',
+      'm-5',
+      'pt-5',
+      'pb-5',
+      'text-center',
+      'roboto',
+      'uppercase',
+      'white',
+      {
+        'bg-red': this.props.stat === 'str',
+        'bg-green': this.props.stat === 'agi',
+        'bg-blue': this.props.stat === 'int',
+        'bg-orange': this.props.stat === 'vit',
+      }
+    );
+    const valueStyles = cn(
+      'text-center'
+    );
+    const buttonStyles = cn(
+      'border-none',
+      'mt-5', 'mb-5',
+      'p-5',
+      'bg-grey',
+      'white'
+    );
+    const costStyles = cn(
+      'fontsize-8'
+    );
+
+    return (
+      <div className={counterStyles}>
+        <div>{this.props.stat}</div>
+        <button
+          className={buttonStyles}
+          onClick={this.inc}
+          onMouseDown={this.holdInc}
+          onMouseUp={this.release}
+        >+</button>
+        <div className={valueStyles}>{this.props.val}</div>
+        <button
+          className={buttonStyles}
+          onClick={this.dec}
+          onMouseDown={this.holdDec}
+          onMouseUp={this.release}
+        >-</button>
+        <div className={costStyles}>{getCost(this.props.val)} pts</div>
+      </div>
+    );
+  }
 }
-
-export default Counter;

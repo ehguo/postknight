@@ -1,43 +1,49 @@
+// Action types
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
-export const JUMP_TO_LEVEL = 'JUMP_TO_LEVEL';
 export const RESET = 'RESET';
 
+// Enums
+export const Stats = {
+  STR: 'str',
+  AGI: 'agi',
+  INT: 'int',
+  VIT: 'vit'
+};
+
+// Initial state
 const initialState = () => ({
   points: 1244,
-  str: {
-    value: 1,
-    cost: 1
-  },
-  agi: {
-    value: 1,
-    cost: 1
-  },
-  int: {
-    value: 1,
-    cost: 1
-  },
-  vit: {
-    value: 1,
-    cost: 1
-  }
+  str: 1,
+  agi: 1,
+  int: 1,
+  vit: 1
 });
 
+// Reducer
 export default function reducer(state = initialState(), action) {
   const stat = action.stat;
-  let value, cost;
-  if (stat) {
-    value = state[stat].value;
-    cost = state[stat].cost;
-  }
+  const val = state[stat];
+  let cost;
   switch (action.type) {
     case INCREMENT:
-      return inc(stat, state);
+      cost = getCost(val);
+      if (state.points - cost >= 0)
+        return {
+          ...state,
+          points: state.points - getCost(val),
+          [stat]: val + 1
+        };
+      else return state;
     case DECREMENT:
-      if (state[stat].value === 1) return state;
-      return dec(stat, state);
-    case JUMP_TO_LEVEL:
-      return jump(stat, action.level, state);
+      cost = getCost(val - 1);
+      if (val > 1)
+        return {
+          ...state,
+          points: state.points + getCost(val - 1),
+          [stat]: state[stat] - 1
+        };
+      else return state;
     case RESET:
       return initialState();
     default:
@@ -45,61 +51,24 @@ export default function reducer(state = initialState(), action) {
   }
 }
 
-function inc(stat, state) {
-  if (state.points < state[stat].cost) return state;
-  const newState = { ...state };
-  newState[stat].value += 1;
-  newState.points -= newState[stat].cost;
-  if (newState[stat].value % 10 === 2) newState[stat].cost += 1;
-  return newState;
-}
+// Action creators
+export const increment = (stat) => ({
+  type: INCREMENT,
+  stat
+});
 
-function dec(stat, state) {
-  const newState = { ...state };
-  newState[stat].value -= 1;
-  if (newState[stat].value % 10 === 1) newState[stat].cost -= 1;
-  newState.points += newState[stat].cost;
-  return newState;
-}
+export const decrement = (stat) => ({
+  type: DECREMENT,
+  stat
+});
 
-function jump(stat, level, state) {
-  let newState = { ...state };
-  let currLevel = newState[stat].value;
-  while (currLevel < level) {
-    newState = inc(stat, newState);
-    currLevel++;
-  }
-  while (currLevel > level) {
-    newState = dec(stat, newState);
-    currLevel--;
-  }
-  return newState;
-}
+export const reset = () => ({
+  type: RESET
+});
 
-export function increment(stat) {
-  return {
-    type: INCREMENT,
-    stat
-  };
-}
-
-export function decrement(stat) {
-  return {
-    type: DECREMENT,
-    stat
-  };
-}
-
-export function jumpToLevel(stat, level) {
-  return {
-    type: JUMP_TO_LEVEL,
-    stat,
-    level
-  }
-}
-
-export function reset() {
-  return {
-    type: RESET
-  }
-}
+// Utility functions
+export const getCost = (value) => {
+  return value === 1
+    ? 1
+    : Math.floor((value - 2) / 10) + 2
+};

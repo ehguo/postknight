@@ -1,7 +1,7 @@
 import StatCalculator from './StatCalculator';
 import { connect } from 'react-redux';
 
-import { increment, decrement, jumpToLevel, reset } from 'redux/modules/statCalculator';
+import { increment, decrement, reset } from 'redux/modules/statCalculator';
 
 const mapState = (state) => ({
   points: state.statCalculator.points,
@@ -14,7 +14,6 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
   increment: (stat) => dispatch(increment(stat)),
   decrement: (stat) => dispatch(decrement(stat)),
-  jumpToLevel: (stat, level) => dispatch(jumpToLevel(stat, level)),
   reset: () => dispatch(reset())
 });
 
