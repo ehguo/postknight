@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import R from 'ramda';
-import cn from 'classnames';
 import glamorous, { Div, Button } from 'glamorous';
 import { Counter } from './components';
 import { Stats } from 'redux/modules/statCalculator';

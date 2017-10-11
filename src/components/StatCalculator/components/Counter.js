@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import cn from 'classnames';
 import glamorous, { Div, Button } from 'glamorous';
 import { getCost } from 'redux/modules/statCalculator';
 

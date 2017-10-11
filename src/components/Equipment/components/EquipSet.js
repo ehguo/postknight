@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import cn from 'classnames';
 
 export default class EquipSet extends PureComponent {
   state = {
@@ -13,35 +12,35 @@ export default class EquipSet extends PureComponent {
     const { NAME, SWORD, SHIELD, ARMOR, HELM, STAT, HP, BONUS } = data;
     const imgPath = `images/equipment/${setName.toLowerCase()}.png`;
 
-    const containerStyles = cn(
-      'm-10',
-      'outline-darkbrown',
-      'border-brown',
-      'bg-lightbrown',
-      'pointer'
-    );
-    const titleStyles = cn(
-      'mt-10',
-      'text-center',
-      'fontsize-14',
-      'darkbrown',
-      'uppercase'
-    );
-    const bodyStyles = cn(
-      'm-10',
-      'width-500',
-      'height-250',
-      'ubuntu',
-      'fontsize-10'
-    );
-    const contentStyles = cn(
-      'size-fill',
-      'text-left'
-    );
+    // const containerStyles = cn(
+    //   'm-10',
+    //   'outline-darkbrown',
+    //   'border-brown',
+    //   'bg-lightbrown',
+    //   'pointer'
+    // );
+    // const titleStyles = cn(
+    //   'mt-10',
+    //   'text-center',
+    //   'fontsize-14',
+    //   'darkbrown',
+    //   'uppercase'
+    // );
+    // const bodyStyles = cn(
+    //   'm-10',
+    //   'width-500',
+    //   'height-250',
+    //   'ubuntu',
+    //   'fontsize-10'
+    // );
+    // const contentStyles = cn(
+    //   'size-fill',
+    //   'text-left'
+    // );
 
     const body = this.state.clicked
       ? (
-          <table className={contentStyles}>
+          <table>
             <tr>
               <th>Item</th>
               <th>Stat</th>
@@ -69,12 +68,12 @@ export default class EquipSet extends PureComponent {
             </tr>
           </table>
       )
-      : <img className={contentStyles} src={imgPath} />;
+      : <img src={imgPath} />;
 
     return (
-      <div className={containerStyles} onClick={this.handleClick}>
-        <h1 className={titleStyles}>{NAME}</h1>
-          <div className={bodyStyles}>{body}</div>
+      <div onClick={this.handleClick}>
+        <h1>{NAME}</h1>
+          <div>{body}</div>
       </div>
     );
   }
