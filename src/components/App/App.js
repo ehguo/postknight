@@ -1,17 +1,22 @@
 import React, { PureComponent } from 'react';
-import cn from 'classnames';
+import glamorous, { Div } from 'glamorous';
 import StatCalculator from 'components/StatCalculator';
 import Equipment from 'components/Equipment';
 
-class App extends PureComponent {
+const appStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100vh'
+}
+
+export default class App extends PureComponent {
   render() {
-    const appStyles = cn('flex-col', 'flex-center', 'vh-100');
     return (
-      <div className={appStyles}>
+      <Div css={appStyle}>
         <StatCalculator />
-      </div>
+      </Div>
     );
   }
 }
-
-export default App;

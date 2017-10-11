@@ -1,6 +1,49 @@
 import React, { PureComponent } from 'react';
 import cn from 'classnames';
+import glamorous, { Div, Button } from 'glamorous';
 import { getCost } from 'redux/modules/statCalculator';
+
+const counterStyle = [
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '5px',
+    padding: '5px',
+    width: '50px',
+    fontFamily: 'Roboto',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    textTransform: 'uppercase'
+  },
+  ({ stat }) => ({
+    background:
+      stat === 'str'
+      ? '#C91A25'
+      : stat === 'agi'
+        ? '#0BBB5A'
+        : stat === 'int'
+          ? '#0788D1'
+          : stat === 'vit'
+            ? '#E97900'
+            : '#000000'
+  })
+];
+
+const valueStyle = {
+  textAlign: 'center'
+}
+
+const buttonStyle = {
+  margin: '5px',
+  padding: '5px',
+  border: 'none',
+  background: '#444444',
+  color: '#FFFFFF'
+}
+
+const costStyle = {
+  fontSize: '.8em'
+}
 
 export default class Counter extends PureComponent {
   state = {
@@ -15,55 +58,26 @@ export default class Counter extends PureComponent {
   release = () => clearInterval(this.interval);
 
   render() {
-    const counterStyles = cn(
-      'flex-col',
-      'width-50',
-      'm-5',
-      'pt-5',
-      'pb-5',
-      'text-center',
-      'roboto',
-      'uppercase',
-      'white',
-      {
-        'bg-red': this.props.stat === 'str',
-        'bg-green': this.props.stat === 'agi',
-        'bg-blue': this.props.stat === 'int',
-        'bg-orange': this.props.stat === 'vit',
-      }
-    );
-    const valueStyles = cn(
-      'text-center'
-    );
-    const buttonStyles = cn(
-      'border-none',
-      'mt-5', 'mb-5',
-      'p-5',
-      'bg-grey',
-      'white'
-    );
-    const costStyles = cn(
-      'fontsize-8'
-    );
-
     return (
-      <div className={counterStyles}>
+      <Div css={counterStyle} stat={this.props.stat}>
         <div>{this.props.stat}</div>
-        <button
-          className={buttonStyles}
+        <Button
+          css={buttonStyle}
           onClick={this.inc}
           onMouseDown={this.holdInc}
           onMouseUp={this.release}
-        >+</button>
-        <div className={valueStyles}>{this.props.val}</div>
-        <button
-          className={buttonStyles}
+        >+</Button>
+        <Div css={valueStyle}>{this.props.val}</Div>
+        <Button
+          css={buttonStyle}
           onClick={this.dec}
           onMouseDown={this.holdDec}
           onMouseUp={this.release}
-        >-</button>
-        <div className={costStyles}>{getCost(this.props.val)} pts</div>
-      </div>
+        >-</Button>
+        <Div css={costStyle}>
+          {getCost(this.props.val)} pts
+        </Div>
+      </Div>
     );
   }
 }

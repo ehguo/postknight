@@ -58,9 +58,8 @@ export default class StatCalculator extends PureComponent {
         </Div>
         <Button
           css={resetButtonStyle}
-          onClick={this.props.reset}>
-          Reset
-        </Button>
+          onClick={this.props.reset}
+        >Reset</Button>
       </Div>
     );
   }
