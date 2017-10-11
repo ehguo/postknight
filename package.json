@@ -20,6 +20,8 @@
   "homepage": "https://github.com/ehguo/postknight#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.9.7",
     "ramda": "^0.24.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -39,7 +41,7 @@
     "style-loader": "^0.18.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack": "^3.7.0",
+    "webpack-dev-server": "^2.9.1"
   }
 }
