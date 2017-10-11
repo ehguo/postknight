@@ -12,13 +12,12 @@ module.exports = {
   module: {
     rules: [
       { test: /\.jsx?$/, include: [src], loader: 'babel-loader', options: { presets: ['es2015', 'react', 'stage-2'] } },
-      { test: /\.s?css$/, loader: ['style-loader', 'css-loader', 'sass-loader'] },
       { test: /\.png$|\.jpe?g$/, loader: 'file-loader' }
     ]
   },
   resolve: {
     modules: ['node_modules', src],
-    extensions: ['.js', '.json', '.jsx', '.css', '.scss']
+    extensions: ['.js', '.json', '.jsx']
   },
   devServer: {
     contentBase: src
