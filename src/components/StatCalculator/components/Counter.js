@@ -29,7 +29,11 @@ const counterStyle = [
   })
 ];
 
-const valueStyle = {
+const statNameStyle = {
+  fontSize: '1em'
+}
+
+const statValueStyle = {
   textAlign: 'center'
 }
 
@@ -41,7 +45,7 @@ const buttonStyle = {
   color: '#FFFFFF'
 }
 
-const costStyle = {
+const statCostStyle = {
   fontSize: '.8em'
 }
 
@@ -60,21 +64,23 @@ export default class Counter extends PureComponent {
   render() {
     return (
       <Div css={counterStyle} stat={this.props.stat}>
-        <div>{this.props.stat}</div>
+        <Div css={statNameStyle}>
+          {this.props.stat}
+        </Div>
         <Button
           css={buttonStyle}
           onClick={this.inc}
           onMouseDown={this.holdInc}
           onMouseUp={this.release}
         >+</Button>
-        <Div css={valueStyle}>{this.props.val}</Div>
+        <Div css={statValueStyle}>{this.props.val}</Div>
         <Button
           css={buttonStyle}
           onClick={this.dec}
           onMouseDown={this.holdDec}
           onMouseUp={this.release}
         >-</Button>
-        <Div css={costStyle}>
+        <Div css={statCostStyle}>
           {getCost(this.props.val)} pts
         </Div>
       </Div>
