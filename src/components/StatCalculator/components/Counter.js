@@ -1,30 +1,27 @@
 import React, { PureComponent } from 'react';
 import glamorous, { Div, Button } from 'glamorous';
 import { getCost } from 'redux/modules/statCalculator';
+import { colors } from 'utils/colors';
+
+const statColorMap = {
+  str: colors.RED,
+  agi: colors.GREEN,
+  int: colors.BLUE,
+  vit: colors.ORANGE
+};
 
 const counterStyle = [
   {
     display: 'flex',
     flexDirection: 'column',
-    margin: '5px',
     padding: '5px',
     width: '50px',
     fontFamily: 'Roboto',
-    color: '#FFFFFF',
     textAlign: 'center',
     textTransform: 'uppercase'
   },
   ({ stat }) => ({
-    background:
-      stat === 'str'
-      ? '#C91A25'
-      : stat === 'agi'
-        ? '#0BBB5A'
-        : stat === 'int'
-          ? '#0788D1'
-          : stat === 'vit'
-            ? '#E97900'
-            : '#000000'
+    color: statColorMap[stat]
   })
 ];
 
