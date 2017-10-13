@@ -8,7 +8,18 @@ const appStyle = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '100vh'
+  height: '100vh',
+  ':after': {
+    content: `''`,
+    display: 'block',
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    backgroundImage: `url('images/background.jpg')`,
+    opacity: '0.35'
+  }
 }
 
 export default class App extends PureComponent {
