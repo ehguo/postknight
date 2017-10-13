@@ -10,7 +10,9 @@ const statCalculatorStyle = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '5px'
+  padding: '5px',
+  border: `1px solid ${colors.CHARCOAL}`,
+  borderRadius: '2px'
 }
 
 const pointDisplayStyle = {
@@ -25,10 +27,12 @@ const counterWrapperStyle = {
 }
 
 const resetButtonStyle = {
-  padding: '5px',
+  margin: '5px',
   border: 'none',
+  background: 'none',
   width: '100px',
-  fontFamily: 'Roboto'
+  fontFamily: 'Roboto',
+  color: colors.CHARCOAL
 }
 
 export default class StatCalculator extends PureComponent {
