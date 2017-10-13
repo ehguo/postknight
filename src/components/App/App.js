@@ -8,7 +8,7 @@ const appStyle = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '100vh',
+  height: 'calc(100vh - 20px)',
   ':after': {
     content: `''`,
     display: 'block',
@@ -18,6 +18,9 @@ const appStyle = {
     width: '100%',
     height: '100%',
     backgroundImage: `url('images/background.jpg')`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: '50% 0',
     opacity: '0.35'
   }
 }
