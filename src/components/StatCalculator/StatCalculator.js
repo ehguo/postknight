@@ -3,21 +3,20 @@ import R from 'ramda';
 import glamorous, { Div, Button } from 'glamorous';
 import { Counter } from './components';
 import { Stats } from 'redux/modules/statCalculator';
+import { colors } from 'utils/colors';
 
 const statCalculatorStyle = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  outline: '#492F1C',
-  border: '3px solid #6D431B',
   padding: '5px'
 }
 
 const pointDisplayStyle = {
   fontSize: '1em',
   fontFamily: 'Roboto',
-  color: '#444444'
+  color: colors.CHARCOAL
 }
 
 const counterWrapperStyle = {
@@ -29,9 +28,7 @@ const resetButtonStyle = {
   padding: '5px',
   border: 'none',
   width: '100px',
-  background: '#444444',
-  fontFamily: 'Roboto',
-  color: '#FFFFFF',
+  fontFamily: 'Roboto'
 }
 
 export default class StatCalculator extends PureComponent {
@@ -52,13 +49,13 @@ export default class StatCalculator extends PureComponent {
         <Div css={pointDisplayStyle}>
           Points: {this.props.points}
         </Div>
-        <Div css={counterWrapperStyle}>
-          {counters}
-        </Div>
         <Button
           css={resetButtonStyle}
           onClick={this.props.reset}
         >Reset</Button>
+        <Div css={counterWrapperStyle}>
+          {counters}
+        </Div>
       </Div>
     );
   }
